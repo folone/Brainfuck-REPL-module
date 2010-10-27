@@ -11,6 +11,8 @@ import java.nio.ByteOrder;
 
 import java.util.ArrayList;
 import java.util.Stack;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 class Brainfuck {
 
@@ -120,7 +122,10 @@ class Brainfuck {
 
     public static String evaluate(String script) throws IOException {
 
-        byte[] code;
+    	if (!Pattern.matches("^(\\-*\\+*\\<*\\>*\\[*\\]*\\.*,*)+$" ,script)) {
+    		 return "Not a valid BF code, should only contain: +-><[].,";
+    	}
+    	byte[] code;
 
         code = new byte[script.length()];
 
