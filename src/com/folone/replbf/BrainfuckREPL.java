@@ -11,19 +11,20 @@ import com.folone.Evaluator;
 
 public class BrainfuckREPL extends Service {
 
-private final Evaluator.Stub evaluator = new Evaluator.Stub() {
-		
-		public String evaluate(String script) throws RemoteException {
-			try {
-				return Brainfuck.evaluate(script);
-			} catch (IOException e) {
-				return "Some error";
-			}
-		}
-	};
-	@Override
-	public IBinder onBind(Intent intent) {
-		return evaluator;
-	}
+    private final Evaluator.Stub evaluator = new Evaluator.Stub() {
+
+        public String evaluate(String script) throws RemoteException {
+            try {
+                return Brainfuck.evaluate(script);
+            } catch (IOException e) {
+                return "Some error";
+            }
+        }
+    };
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return evaluator;
+    }
 
 }

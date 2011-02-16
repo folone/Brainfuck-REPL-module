@@ -13,8 +13,5 @@
                 <category android:name="foloneREPL" />
             </intent-filter>
         </service>
-
     </application>
-
-
 </manifest> 
